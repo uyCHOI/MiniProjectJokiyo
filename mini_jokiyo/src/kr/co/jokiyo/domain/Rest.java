@@ -32,10 +32,10 @@ public class Rest {
 	public void setExitNum(int exitNum) {
 		this.exitNum = exitNum;
 	}
-	public long getTel() {
+	public String getTel() {
 		return tel;
 	}
-	public void setTel(long tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 	public String getOpenDate() {

@@ -42,10 +42,10 @@ public class User {
 	public void setSex(char sex) {
 		this.sex = sex;
 	}
-	public long getHp() {
+	public String getHp() {
 		return hp;
 	}
-	public void setHp(long hp) {
+	public void setHp(String hp) {
 		this.hp = hp;
 	}
 	public String getEmail() {
