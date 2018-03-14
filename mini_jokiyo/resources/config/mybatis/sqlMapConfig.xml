@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 설정파일에서 사용할 프로퍼티의 파일의 경로 지정: classpath
+	url=jdbc:oracle:thin:@localhost:1521:XE
+	driver=oracle.jdbc.driver.OracleDriver
+	username=hr
+	password=hr 
+	-->
+	<properties resource="config/mybatis/db.properties"/>
+	
+	<!-- SQL의 결과를 담을 VO 객체들의 별칭을 설정하여 사용의 편의를 도모  
+	mapper xml 파일에서 설정된  alias를 사용할수 있다.-->
+	<typeAliases>
+		<typeAlias alias="user"  type="kr.co.jokiyo.domain.User" />
+		<typeAlias alias="menu"  type="kr.co.jokiyo.domain.Menu" />
+		<typeAlias alias="rest"  type="kr.co.jokiyo.domain.Rest" />
+		<typeAlias alias="restType"  type="kr.co.jokiyo.domain.RestType" />
+		<typeAlias alias="review"  type="kr.co.jokiyo.domain.Review" />
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="config/sqlmap/oracle/join.xml"/>
+		<mapper resource="config/sqlmap/oracle/listRest.xml"/>
+		<mapper resource="config/sqlmap/oracle/listReview.xml"/>
+		<mapper resource="config/sqlmap/oracle/login.xml"/>
+		<mapper resource="config/sqlmap/oracle/restManager.xml"/>
+		<mapper resource="config/sqlmap/oracle/stat.xml"/>
+		<mapper resource="config/sqlmap/oracle/userManager.xml"/>
+	</mappers>
+</configuration>
