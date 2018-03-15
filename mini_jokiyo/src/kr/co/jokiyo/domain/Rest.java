@@ -4,10 +4,39 @@ public class Rest {
 	private int restId;
 	private String name;
 	private int typeId;
+	private char typeName;
 	private int exitNum;
-	private long tel;
+	private String tel;
 	private String openDate;
 	private String closeDate;
+	private String addr;
+	private int star;
+	private int reviewCnt;
+
+	public char getTypeName() {
+		return typeName;
+	}
+	public void setTypeName(char typeName) {
+		this.typeName = typeName;
+	}
+	public int getStar() {
+		return star;
+	}
+	public void setStar(int star) {
+		this.star = star;
+	}
+	public int getReviewCnt() {
+		return reviewCnt;
+	}
+	public void setReviewCnt(int reviewCnt) {
+		this.reviewCnt = reviewCnt;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 	public int getRestId() {
 		return restId;
 	}

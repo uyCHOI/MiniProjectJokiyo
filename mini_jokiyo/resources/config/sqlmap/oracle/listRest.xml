@@ -2,5 +2,55 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.jokiyo.mapper.ListRestMapper">
+    <resultMap id="restMap" type="rest">
+         <result column = "rest_id" property="restId" />
+         <result column = "name" property="name" />
+         <result column = "type_id" property="typeId" />
+         <result column = "exit_num" property="exitNum" />
+         <result column = "open_date" property="openDate" />
+         <result column = "close_date" property="closeDate" />
+         <result column = "star" property="star" />
+         <result column = "review_cnt" property="reviewCnt" />
+         <result column = "type_name" property="typeName"/>
+         
+    
+    </resultMap>
+    
+    <select id = "selectRestExitNum"  parameterType="int" resultMap="restMap" >
+    select *
+     from tb_rest
+     where exit_num = #{exitNum}
+     order by exit_num 
+    </select>
+    
+    <select  id = "selectRestCategory"  parameterType="int" resultMap="restMap" >
+
+      
+           select a.REST_ID , a.NAME , c.NAME ,
+                  b.STAR , (select count(review_id) from TB_REVIEW where rest_id = a.rest_id ) 
+           from tb_rest a 
+ left outer join  tb_review  b
+            on  a.rest_id = b.rest_id 
+      inner join tb_rest_type c
+            on a.TYPE_ID = c.TYPE_ID
+           where a.type_id = #{typeId}
+            order by b.STAR
+      
+      
+      
+ </select>
+ 
+
+    <select id= "selectRestByNo" parameterType="int" resultMap="restMap" >
+    select *
+      from tb_rest
+    </select>
+    
+    <select id="selectDetailRest" parameterType="int" resultMap="restMap">
+    select *
+     from tb_rest 
+     where rest_id = #{restId}
+    </select>
+
 
 </mapper>
