@@ -4,10 +4,17 @@ public class Rest {
 	private int restId;
 	private String name;
 	private int typeId;
+	private String typeName;
 	private int exitNum;
-	private long tel;
+	private String tel;
 	private String openDate;
 	private String closeDate;
+	public String getTypeName() {
+		return typeName;
+	}
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
 	public int getRestId() {
 		return restId;
 	}

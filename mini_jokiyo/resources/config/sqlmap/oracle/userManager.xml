@@ -4,10 +4,40 @@
 <mapper namespace="kr.co.jokiyo.mapper.UserManagerMapper">
 
 	<resultMap  id="userMap" type="user">
+	    <result column="id" property="id"/>
+	    <result column="pw" property="pw"/>
+	    <result column="name" property="name"/>
+	    <result column="age" property="age"/>
+	    <result column="sex" property="sex"/>
+	    <result column="hp" property="hp"/>
+	    <result column="email" property="email"/>
 		<result column="reg_date" property="regDate"/>
+	    <result column="authority" property="authority"/>
 	</resultMap>
+	
 	<select id="selectUser"  resultMap="userMap">
 		select *
 		 from tb_user
 	</select>
+	
+	<update id="updateUser" parameterType="user">
+	    update tb_user
+	       set pw = #{pw},
+	           name = #{name},
+	           age = #{age},
+	           sex = #{sex},
+	           hp = #{hp},
+	           email = #{email},
+	           authority = #{authority}
+	     where id = #{id}
+	</update>
+	
+	<delete id="deleteUser" parameterType="string">
+        delete
+          from tb_user
+         where id = #{id}
+    </delete>
+
 </mapper>
+
+
