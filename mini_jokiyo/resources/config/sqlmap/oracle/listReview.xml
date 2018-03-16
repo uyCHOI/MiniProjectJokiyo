@@ -33,5 +33,12 @@
          where rv.rest_id =  #{restId}
      </select>
      
+      
+      <update id="updateGood" parameterType="review">
+      update tb_review 
+        set good = good+1
+       where review_id = #{reviewId}
+         and rest_id = #{restId}
+      </update>     
 
 </mapper>

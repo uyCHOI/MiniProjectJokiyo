@@ -11,7 +11,7 @@ public class Rest {
 	private String openDate;
 	private String closeDate;
 	private String addr;
-	private int star;
+	private float star;
 	private int reviewCnt;
 	public String getExitName() {
 		return exitName;
@@ -26,10 +26,10 @@ public class Rest {
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
 	}
-	public int getStar() {
+	public float getStar() {
 		return star;
 	}
-	public void setStar(int star) {
+	public void setStar(float star) {
 		this.star = star;
 	}
 	public int getReviewCnt() {

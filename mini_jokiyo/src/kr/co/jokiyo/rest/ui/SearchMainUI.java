@@ -41,7 +41,7 @@ public class SearchMainUI extends BaseUI {
 		System.out.println("2.메뉴별");
 		System.out.println("3.로그아웃");
 		System.out.println("================================");
-		System.out.println("메뉴 중 처리할 항목을 선택하세요 : ");
+		System.out.print("메뉴 중 처리할 항목을 선택하세요 : ");
 		return Integer.parseInt(sc.nextLine());
 	}
 

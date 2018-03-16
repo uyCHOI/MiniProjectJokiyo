@@ -8,6 +8,7 @@ package kr.co.jokiyo.mapper;
 
 import java.util.List;
 
+import kr.co.jokiyo.domain.Menu;
 import kr.co.jokiyo.domain.Rest;
 
 public interface ListRestMapper {
@@ -15,4 +16,5 @@ public interface ListRestMapper {
 	List<Rest> selectRestExitNum(int num);
 	List<Rest> selectRestCategory(int no);
 	List<Rest> selectDetailRest(int no);
+	List<Menu> selectDetailMenu(int id);
 }

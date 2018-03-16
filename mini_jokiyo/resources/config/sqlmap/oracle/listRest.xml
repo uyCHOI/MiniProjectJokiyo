@@ -15,11 +15,10 @@
          <result column = "review_cnt" property="reviewCnt" />
          <result column = "type_name" property="typeName"/>
          
-    
     </resultMap>
     
     <select id = "selectRestExitNum"  parameterType="int" resultMap="restMap" >
-     select a.*, b.exit_Name, c.name as type_name
+     select a.rest_id,a.name,a.type_id,a.exit_num,a.tel,a.addr,nvl(a.open_date,'　') as open_date,nvl(a.close_date,'　') as close_date, b.exit_Name, c.name as type_name
      from tb_rest a
     inner join tb_exit_type b
       on a.EXIT_NUM=b.EXIT_NUM
@@ -38,7 +37,7 @@
        inner join tb_rest_type c
             on a.TYPE_ID = c.TYPE_ID
       where a.type_id = #{typeId}
-    	group by a.REST_ID,b.STAR, a.NAME , c.NAME ,b.STAR 
+    	group by a.REST_ID,b.STAR, a.NAME , c.NAME  
          order by b.STAR
  	</select>
  
@@ -47,12 +46,33 @@
     select *
       from tb_rest
     </select>
-    
+    <!-- 
     <select id="selectDetailRest" parameterType="int" resultMap="restMap">
     select *
      from tb_rest 
      where rest_id = #{restId}
+    </select> -->
+
+
+    <select id="selectDetailRest" parameterType="int" resultMap="restMap">
+   select a.name,a.tel,nvl(a.open_date,'　') as open_date,nvl(a.close_date,'　') as close_date,a.addr ,c.exit_name, d.name,avg(b.star) as star
+    from tb_rest a
+     inner join TB_REVIEW b
+      on  a.rest_id = b.rest_id
+      inner join tb_exit_type c
+       on a.EXIT_NUM = c.EXIT_NUM
+      inner join tb_rest_type d
+       on a.TYPE_ID = d.TYPE_ID
+      where a.rest_id = #{restId}
+      group by  a.name,a.tel,open_date,close_date,a.addr ,c.exit_name, d.name,b.star
     </select>
 
+	<select id="selectDetailMenu"  parameterType="int"     resultType="menu" >
+	select m.name, m.price
+	  from tb_menu m
+	inner join tb_rest r
+	  on m.rest_id = r.rest_id
+	  where m.rest_id = #{restId}
+	</select> 
 
 </mapper>

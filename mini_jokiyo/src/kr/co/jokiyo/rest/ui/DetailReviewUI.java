@@ -36,7 +36,11 @@ public class DetailReviewUI extends BaseUI {
 		System.out.println(" 내용 : " + r.getCmt() );
 		System.out.println(" 좋아요(갯수) :" +r.getGood());
 		System.out.println("================================");
-		}
+		};
+		System.out.print("좋아요를 할 리뷰번호를 입력하세요 : "  );
+        int id = Integer.parseInt(sc.nextLine());
+        mapper.updateGood(id);
+        System.out.println("좋아요가 반영되었습니다.");
 		/*
 		 * 상세보기 번호 입력시
 리뷰상세화면
