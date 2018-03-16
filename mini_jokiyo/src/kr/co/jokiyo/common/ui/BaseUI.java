@@ -17,6 +17,15 @@ public abstract class BaseUI {
 		System.out.print(msg);
 		return Integer.parseInt(sc.nextLine());
 	}
+	public void printStar(float cnt) {
+		 int star = (int)cnt;
+		for(int i =0; i<star; i++) {
+			System.out.print("★");
+		}
+		if(cnt%0.5>0) {
+			System.out.println("☆");
+		}System.out.println();
+	}
 }
 
 
