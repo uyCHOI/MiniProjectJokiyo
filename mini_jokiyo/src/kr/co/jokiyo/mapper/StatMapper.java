@@ -1,5 +1,11 @@
 package kr.co.jokiyo.mapper;
 
-public class StatMapper {
+import java.util.List;
 
+import kr.co.jokiyo.domain.Stat;
+
+public interface StatMapper {
+	List<Stat> selectFemailStat();
+	List<Stat> selectMailStat();
+	List<Stat> selectMonthStat(String mm);
 }

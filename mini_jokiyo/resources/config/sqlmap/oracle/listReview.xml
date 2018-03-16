@@ -2,5 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.jokiyo.mapper.ListReviewMapper">
+    <resultMap id="resultMap" type="review">
+         <result column = "review_id" property="reviewId" />
+         <result column = "name" property="name" />
+         <result column = "id" property="Id" />
+         <result column = "star" property="star" />
+         <result column = "cmt" property="cmt" />
+         <result column = "reg_date" property="regDate" />
+         <result column = "good" property="good" />
+         <result column = "rest_id" property="restId" />
+         <result column = "view_cnt" property="viewCnt" />
+     </resultMap>
+     
+     <insert id="writeReview"  parameterType="review">
+          insert into tb_review(
+                REVIEW_ID, ID, STAR, CMT, REST_ID
+          ) values (
+              s_review_id.nextval,#{id},#{star},#{cmt},#{restId}
+          )
+          
+           
+     </insert>
+     
+     <select id = "detailReview" parameterType="int" resultMap="resultMap" >
+        select rt.name ,rv.id, rv.REVIEW_ID,rv.reg_date,rv.STAR,rv.CMT, (select count(good) from TB_REVIEW where rest_id = rv.rest_id )
+          from tb_review rv
+         inner 
+          join tb_rest rt
+          on rv.rest_id = rt.rest_id
+         where rv.rest_id =  #{restId}
+     
+     </select>
+     
 
 </mapper>

@@ -1,9 +1,12 @@
 package kr.co.jokiyo.mapper;
-
-import java.util.List;
-
+/**
+ * @author 지혜
+ * 로그인, 비밀번호 찾기 mapper
+ * 
+ */
 import kr.co.jokiyo.domain.User;
 
 public interface LoginMapper {
-	List<User> selectUser();
+	  User selectUserLogin(User param);
+	  User findUserPW(User param);
 }
