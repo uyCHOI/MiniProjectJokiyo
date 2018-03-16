@@ -4,11 +4,20 @@ import java.util.Date;
 
 public class Review {
 	private int reviewId;
+	private String name;
 	private String Id;
 	private int star;
 	private String cmt;
 	private Date regDate;
 	private int good;
+	private int restId;
+	private int viewCnt;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getReviewId() {
 		return reviewId;
 	}
@@ -57,8 +66,7 @@ public class Review {
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
 	}
-	private int restId;
-	private int viewCnt;
+
 	
 
 }
