@@ -25,20 +25,19 @@
      </insert>
      
      <select id = "detailReview" parameterType="int" resultMap="resultMap" >
-        select rt.name ,rv.id, rv.REVIEW_ID,rv.reg_date,rv.STAR,rv.CMT, (select count(good) from TB_REVIEW where rest_id = rv.rest_id )
+       select rt.name ,rv.id, rv.REVIEW_ID,rv.reg_date,rv.STAR,rv.CMT,rv.good 
           from tb_review rv
          inner 
           join tb_rest rt
           on rv.rest_id = rt.rest_id
-         where rv.rest_id =  #{restId}
+         where rv.rest_id =   #{restId}
      </select>
      
       
-      <update id="updateGood" parameterType="review">
+      <update id="updateGood" parameterType="int">
       update tb_review 
         set good = good+1
        where review_id = #{reviewId}
-         and rest_id = #{restId}
       </update>     
 
 </mapper>
