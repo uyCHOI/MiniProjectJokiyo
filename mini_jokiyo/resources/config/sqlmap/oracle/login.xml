@@ -2,5 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.jokiyo.mapper.LoginMapper">
-
+	<resultMap id="userMap" type="user">
+		<result column="id" property="id" />
+		<result column="pw" property="pw" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
+		<result column="sex" property="sex" />
+		<result column="hp" property="hp" />
+		<result column="email" property="email" />
+		<result column="reg_date" property="regDate" />
+		<result column="authority" property="authority" />
+	</resultMap>
+	<select id="selectUserLogin" parameterType="user" resultMap="userMap">
+    	select *
+    	  from tb_user
+    	 where id = #{id} 
+    	 and pw = #{pw} 
+	</select> 
+	<select id="findUserPW" parameterType="user" resultMap="userMap" >
+    	select *
+    	  from tb_user
+    	 where id = #{id} 
+    	 and name = #{name}
+    	 and email = #{email} 
+    </select>
 </mapper>

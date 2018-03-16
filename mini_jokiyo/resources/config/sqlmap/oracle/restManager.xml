@@ -2,5 +2,62 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.jokiyo.mapper.RestManagerMapper">
-
+    <resultMap id="restMap" type="rest">
+        <result column="rest_id" property="restId" />
+        <result column="name" property="name" />
+		<result column="type_id" property="typeId" />
+		<result column="type_name" property="typeName" />
+		<result column="exit_num" property="exitNum" />
+		<result column="tel" property="tel" />
+		<result column="open_date" property="openDate" />
+		<result column="close_date" property="closeDate" />
+    </resultMap>
+    
+    <select id="selectRest" resultMap="restMap">
+        select rest_id, r.name as name, t.name as type_name, exit_num, tel, nvl(open_date, ' ')as open_date, nvl(close_date, ' ') as close_date
+          from tb_rest r
+         inner join tb_rest_type t
+            on r.type_id= t.type_id
+         order by rest_id asc
+    </select>
+    
+    <insert id="insertRest" parameterType="rest">
+        insert into tb_rest (
+            rest_id,
+            name,
+            type_id,
+            exit_num,
+            tel,
+            open_date,
+            close_date
+        ) values (
+            s_rest_id.nextval,
+            #{name},
+            #{typeId},
+            #{exitNum},
+            #{tel},
+            #{openDate},
+            #{closeDate}
+        )
+    </insert>
+    
+    <update id="updateRest" parameterType="rest">
+        update tb_rest
+           set name = #{name},
+               type_id = #{typeId},
+               exit_num = #{exitNum},
+               tel = #{tel},
+               open_date = #{openDate},
+               close_date = #{closeDate}
+         where rest_id = #{restId}
+    </update>
+    
+    <delete id="deleteRest" parameterType="int">
+        delete
+          from tb_rest
+         where rest_id = #{restId}
+    </delete>
+    
+    
+    
 </mapper>
