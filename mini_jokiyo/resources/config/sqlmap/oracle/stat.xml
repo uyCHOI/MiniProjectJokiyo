@@ -2,5 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.jokiyo.mapper.StatMapper">
+	<resultMap type="stat" id="statMap">
+		<result column="review_cnt" property="reviewCnt" />
+	</resultMap>
+	<select id="selectFemailStat" resultType="stat">
+		select a.name as name, count(b.REST_ID) as  reviewCnt,avg(b.star) as star 
+		  from tb_rest a
+		  left outer join  tb_review  b
+		       on  a.rest_id = b.rest_id   
+		    left outer  join TB_USER c
+		      on b.id=c.id
+		  group by a.name, c.sex
+		    HAVING c.sex='f'
+		    order by reviewCnt desc
+	</select>
+	<select id="selectMailStat" resultType="stat">
+		select a.name name, count(b.REST_ID) reviewCnt,avg(b.star) as star 
+		  from tb_rest a
+		  left outer join  tb_review  b
+		       on  a.rest_id = b.rest_id   
+		    left outer  join TB_USER c
+		      on b.id=c.id
+		  group by a.name, c.sex
+		    HAVING c.sex='m'
+		    order by reviewCnt desc
+	</select>
 
+	<select id="selectMonthStat" parameterType="string" resultMap="statMap">
+		select  b.NAME as name, count(a.review_id) as reviewCnt, avg(a.star) as star
+				    from TB_REVIEW a
+          inner join TB_REST b
+           on a.REST_ID=b.REST_ID
+          where to_char(a.REG_DATE,'mm')=#{mm}
+      group by b.REST_ID, b.NAME
+	</select>
+	
 </mapper>
