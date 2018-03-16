@@ -2,7 +2,9 @@ package kr.co.jokiyo.admin.ui;
 
 import java.util.Scanner;
 
-public class AdminUI {
+import kr.co.jokiyo.common.ui.BaseUI;
+
+public class AdminUI extends BaseUI{
 	private static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
@@ -14,7 +16,7 @@ public class AdminUI {
 		}
 	}
 	
-	public void service() throws Exception {
+	public void service() {
 		RestUI rui = null;
 		UserUI uui = null;
 		StatUI sui = null;

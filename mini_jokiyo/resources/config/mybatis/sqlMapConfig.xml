@@ -19,6 +19,7 @@
 		<typeAlias alias="rest"  type="kr.co.jokiyo.domain.Rest" />
 		<typeAlias alias="restType"  type="kr.co.jokiyo.domain.RestType" />
 		<typeAlias alias="review"  type="kr.co.jokiyo.domain.Review" />
+		<typeAlias alias="stat"  type="kr.co.jokiyo.domain.Stat" />
 	</typeAliases>
 	
 	<environments default="development">

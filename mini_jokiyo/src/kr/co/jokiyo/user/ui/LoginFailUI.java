@@ -14,7 +14,7 @@ public class LoginFailUI extends BaseUI{
 		mapper = session.getMapper(LoginMapper.class);
 	}
 	@Override
-	public void service() throws Exception {
+	public void service() {
 		BaseUI ui = null;
 		
 		switch(menu()) {

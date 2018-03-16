@@ -8,7 +8,7 @@ public class User {
 	private String name;
 	private int age;
 	private char sex;
-	private long hp;
+	private String hp;
 	private String email;
 	private Date regDate;
 	private char authority;

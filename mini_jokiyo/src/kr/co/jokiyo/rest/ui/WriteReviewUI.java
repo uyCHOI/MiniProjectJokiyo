@@ -6,20 +6,16 @@ import common.db.MyAppSqlConfig;
 import kr.co.jokiyo.common.ui.BaseUI;
 import kr.co.jokiyo.domain.Review;
 import kr.co.jokiyo.mapper.ListReviewMapper;
-
+import kr.co.jokiyo.user.ui.LoginUI;
 public class WriteReviewUI extends BaseUI {
 	int no= 2;
-	String id = "user1";
+	String id = LoginUI.logUser;
 	ListReviewMapper mapper;
 
 	public WriteReviewUI() {
 		SqlSession session = MyAppSqlConfig.getSqlSession();
 	     mapper = session.getMapper(ListReviewMapper.class);
-//	     this.no= no;
-
 	}
-	
-	
 	public void service() {
 		Review re = new Review();
 		re.setId(id);
@@ -30,15 +26,13 @@ public class WriteReviewUI extends BaseUI {
 		System.out.println("================================");
 		mapper.writeReview(re);
 		System.out.println("리뷰가 등록되었습니다.");
-		/*
-		 * 리뷰를 작성하세요.
+	}
+}
+/*
+ * 리뷰를 작성하세요.
 ============
 코멘트 :
 별점 (1-5) :
 ============
-		 * */
-		
-	}
-	
+ * */
 
-}

@@ -17,7 +17,7 @@ public class FindPwUI extends BaseUI {
 	}
 
 	@Override
-	public void service() throws Exception {
+	public void service() {
 		System.out.println("================================");
 		System.out.println("본인 확인 후 비밀번호를 찾아드립니다.");
 		String id = getStr("아이디: ");

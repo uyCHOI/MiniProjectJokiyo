@@ -3,14 +3,16 @@ package kr.co.jokiyo.user.ui;
 import org.apache.ibatis.session.SqlSession;
 
 import common.db.MyAppSqlConfig;
+import kr.co.jokiyo.admin.ui.AdminUI;
 import kr.co.jokiyo.common.ui.BaseUI;
 import kr.co.jokiyo.domain.User;
 import kr.co.jokiyo.mapper.LoginMapper;
+import kr.co.jokiyo.rest.ui.SearchMainUI;
 
 public class LoginUI extends BaseUI {
 	BaseUI ui = null;
 	private LoginMapper mapper;
-	static String logUser;
+	public static String logUser;
 
 	public LoginUI() {
 		SqlSession session = MyAppSqlConfig.getSqlSession();
@@ -18,7 +20,7 @@ public class LoginUI extends BaseUI {
 	}
 
 	@Override
-	public void service() throws Exception {
+	public void service() {
 		System.out.println("================================");
 		String id = getStr("아이디: ");
 		String pw = getStr("비밀번호: ");
@@ -33,21 +35,20 @@ public class LoginUI extends BaseUI {
 			ui.service();
 			return;
 		} 
-		
 		char chk = param.getAuthority();
 		
 		if (chk == '1') {
 			System.out.println("로그인에 성공하였습니다.");
 			System.out.println("================================");
 			logUser = param.getId();
-//			 SearchMainUI ui = new SearchMainUI();
-//			 ui.service();
+			 ui = new SearchMainUI();
+			 ui.service();
 			
 		} else if (chk == '2') {
 			System.out.println("관리자 계정 로그인");
 			System.out.println("================================");
-//			 AdminUI admin = new AdminUI();
-//			 admin.service();
+			ui = new AdminUI();
+			ui.service();
 		}
 	}
 

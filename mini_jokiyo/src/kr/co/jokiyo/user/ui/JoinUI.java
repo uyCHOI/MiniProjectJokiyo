@@ -19,7 +19,7 @@ public class JoinUI extends BaseUI {
 		}	
 		
 		@Override
-		public void service() throws Exception {
+		public void service() {
 			System.out.println("================================");
 			User u = new User();
 			boolean chk = true;
@@ -54,7 +54,12 @@ public class JoinUI extends BaseUI {
 			mapper.insertUserJoin(param);
 			System.out.println("회원가입이 완료되었습니다.");
 			LoginUI ui = new LoginUI();
-			ui.service();
+			try {
+				ui.service();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			}
 		

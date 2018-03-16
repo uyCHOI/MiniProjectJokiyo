@@ -16,7 +16,7 @@ public class UserUI {
 		mapper = session.getMapper(UserManagerMapper.class);
 	}
 
-	public void service() throws Exception {
+	public void service() {
 		AdminUI aui = new AdminUI();
 		BaseUI ui = null;
 		switch(menu()){

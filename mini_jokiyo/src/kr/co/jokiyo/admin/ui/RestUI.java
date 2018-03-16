@@ -16,7 +16,7 @@ public class RestUI {
 		mapper = session.getMapper(RestManagerMapper.class);
 	}
 
-	public void service() throws Exception {
+	public void service() {
 		BaseUI ui = null;
 		AdminUI aui = new AdminUI();
 		while(true) {
