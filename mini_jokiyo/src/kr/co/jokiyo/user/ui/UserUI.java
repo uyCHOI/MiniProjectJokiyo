@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 import kr.co.jokiyo.common.ui.BaseUI;
 
-public class UserUI {
+public class UserUI extends BaseUI{
 	private Scanner sc = new Scanner(System.in);
 
-	public void service() throws Exception {
+	public void service() {
 		BaseUI ui = null;
 		switch (menu()) {
 		case 1:
@@ -16,10 +16,14 @@ public class UserUI {
 		case 2:
 			ui = new JoinUI();
 			break;
+		case 3:quit();
 		}
 		ui.service();
 	}
-
+	private void quit() {
+		System.out.println("강남역 맛집평가 프로그램을 종료합니다.");
+		System.exit(0);
+	}
 	private int menu() {
 		System.out.println("================================");
 		System.out.println("1. 로그인");

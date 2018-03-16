@@ -4,7 +4,7 @@ public class Rest {
 	private int restId;
 	private String name;
 	private int typeId;
-	private char typeName;
+	private String typeName;
 	private int exitNum;
 	private String tel;
 	private String openDate;
@@ -13,10 +13,10 @@ public class Rest {
 	private int star;
 	private int reviewCnt;
 
-	public char getTypeName() {
+	public String getTypeName() {
 		return typeName;
 	}
-	public void setTypeName(char typeName) {
+	public void setTypeName(String typeName) {
 		this.typeName = typeName;
 	}
 	public int getStar() {
