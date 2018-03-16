@@ -31,7 +31,6 @@
           join tb_rest rt
           on rv.rest_id = rt.rest_id
          where rv.rest_id =  #{restId}
-     
      </select>
      
 

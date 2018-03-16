@@ -8,4 +8,5 @@ public interface StatMapper {
 	List<Stat> selectFemailStat();
 	List<Stat> selectMailStat();
 	List<Stat> selectMonthStat(String mm);
+	List<Stat> selectAgePref(int age);
 }

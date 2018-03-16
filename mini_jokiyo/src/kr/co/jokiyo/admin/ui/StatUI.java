@@ -20,7 +20,7 @@ public class StatUI extends BaseUI {
 			switch(menu()) {
 			case 1 : ui = new GenderPrefStatUI(mapper);  break;
 			case 2 : ui = new MonthPrefStatUI(mapper); break;
-			case 3 :  break;
+			case 3 : ui = new AgePrefStatUI(mapper);  break;
 			}
 			ui.service();
 		}

@@ -8,7 +8,7 @@ import common.db.MyAppSqlConfig;
 import kr.co.jokiyo.common.ui.BaseUI;
 import kr.co.jokiyo.mapper.UserManagerMapper;
 
-public class UserUI {
+public class UserUI extends BaseUI {
 	private Scanner sc = new Scanner(System.in);
 	private UserManagerMapper mapper;
 	UserUI(){

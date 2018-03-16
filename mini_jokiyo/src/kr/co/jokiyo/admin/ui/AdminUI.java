@@ -18,14 +18,14 @@ public class AdminUI extends BaseUI{
 	
 	public void service() {
 		RestUI rui = null;
-		UserUI uui = null;
+		kr.co.jokiyo.admin.ui.UserUI uui = null;
 		StatUI sui = null;
 		
 		switch (menu()) {
 			case 1: rui = new RestUI();
 					rui.service(); 
 					break;
-			case 2: uui = new UserUI();
+			case 2: uui = new kr.co.jokiyo.admin.ui.UserUI();
 			        uui.service();
 			        break;
 			case 3: sui = new StatUI();
