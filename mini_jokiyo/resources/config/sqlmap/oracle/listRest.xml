@@ -29,7 +29,20 @@
     </select>
     
     <select  id = "selectRestCategory"  parameterType="int" resultMap="restMap" >
-           select a.REST_ID , a.NAME , c.NAME ,
+       select a.REST_ID , a.NAME , 
+              avg(b.STAR) as star , (select count(review_id) from TB_REVIEW where rest_id = a.rest_id ) 
+         from tb_rest a 
+ left outer join  tb_review  b
+            on  a.rest_id = b.rest_id 
+       inner join tb_rest_type c
+            on a.TYPE_ID = c.TYPE_ID
+      where a.type_id = #{typeId}
+    	group by a.REST_ID,a.name, a.NAME , c.NAME  
+         order by star
+    
+    
+    
+<!--            select a.REST_ID , a.NAME , c.NAME ,
                   b.STAR , (select count(review_id) from TB_REVIEW where rest_id = a.rest_id ) 
            from tb_rest a 
 	 left outer join  tb_review  b
@@ -38,7 +51,7 @@
             on a.TYPE_ID = c.TYPE_ID
       where a.type_id = #{typeId}
     	group by a.REST_ID,b.STAR, a.NAME , c.NAME  
-         order by b.STAR
+         order by b.STAR -->
  	</select>
  
 
@@ -55,7 +68,14 @@
 
 
     <select id="selectDetailRest" parameterType="int" resultMap="restMap">
-   select a.name,a.tel,nvl(a.open_date,'　') as open_date,nvl(a.close_date,'　') as close_date,a.addr ,c.exit_name, d.name,avg(b.star) as star
+   select a.name,
+           a.tel,
+            nvl(a.open_date,'　') as open_date,
+            nvl(a.close_date,'　') as close_date,
+            a.addr ,
+            c.exit_name, 
+            d.name,
+            avg(b.star) as star
     from tb_rest a
      inner join TB_REVIEW b
       on  a.rest_id = b.rest_id
