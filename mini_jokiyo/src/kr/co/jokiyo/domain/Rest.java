@@ -6,12 +6,19 @@ public class Rest {
 	private int typeId;
 	private String typeName;
 	private int exitNum;
+	private String exitName;
 	private String tel;
 	private String openDate;
 	private String closeDate;
 	private String addr;
 	private int star;
 	private int reviewCnt;
+	public String getExitName() {
+		return exitName;
+	}
+	public void setExitName(String exitName) {
+		this.exitName = exitName;
+	}
 
 	public String getTypeName() {
 		return typeName;

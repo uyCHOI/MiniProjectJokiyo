@@ -32,12 +32,10 @@ public class ListCategoryUI extends BaseUI {
 			System.out.println("================================");
 			for (Rest r :list) {
 				System.out.printf("%d\t%s\t\t%d\t%d\n",r.getRestId(),r.getName(),r.getReviewCnt(),r.getStar());
-			
 			} 
 			int num = getInt("상세번호를 보기를 원하면 식당아이디를 입력하세요 : ");
 			DetailRestUI dr = new DetailRestUI(num);
 			dr.service();
-			 
 		} 
 	}
 

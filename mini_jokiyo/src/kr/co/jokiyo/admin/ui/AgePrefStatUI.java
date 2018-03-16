@@ -8,24 +8,20 @@ import kr.co.jokiyo.mapper.StatMapper;
 
 public class AgePrefStatUI extends BaseUI{
 	private StatMapper mapper;
-	
 	public AgePrefStatUI(StatMapper mapper) {
 		this.mapper=mapper;
 	}
 
 	@Override
 	public void service() {
-//		List<Stat> list = mapper.selectAgePref();
-//		for(Stat s : list) {
-//			System.out.println(" "+s.getName());
-//			System.out.println(" 별점 : " +s.getStar());	
-//			System.out.println("10대 리뷰 수 " +s.getAge10()+" 별점" );
-//			System.out.println("20대 리뷰 수 " +s.getAge20());
-//			System.out.println("30대 리뷰 수 " +s.getAge30());
-//			System.out.println("40대 리뷰 수 " +s.getAge40());
-//			System.out.println("50대 리뷰 수 " +s.getAge50());
-//			System.out.println("60대 리뷰 수 " +s.getAge60());
-//		}
+		int age = getInt("나이대별 별점 높은순으로 출력을 위해 나이를 입력 :");
+		List<Stat> list = mapper.selectAgePref(age);
+		System.out.println(age+"대 가장 선호하는 음식점 ");
+		System.out.println("식당명           별점        리뷰수");
+		for(Stat s : list) {
+			System.out.println("================================");
+			System.out.println("   "+s.getName()+ "   "+s.getStar()+"   "+s.getReviewCnt());
+		}
 	}
 	
 }

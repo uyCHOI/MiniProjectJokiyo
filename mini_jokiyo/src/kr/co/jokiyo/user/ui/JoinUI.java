@@ -11,13 +11,10 @@ import kr.co.jokiyo.mapper.JoinMapper;
 
 public class JoinUI extends BaseUI {
 	private JoinMapper mapper;
-
-	
 		public JoinUI() {
 			SqlSession session = MyAppSqlConfig.getSqlSession();
 			mapper = session.getMapper(JoinMapper.class);
 		}	
-		
 		@Override
 		public void service() {
 			System.out.println("================================");

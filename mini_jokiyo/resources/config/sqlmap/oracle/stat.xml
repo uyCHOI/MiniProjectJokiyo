@@ -37,4 +37,15 @@
       group by b.REST_ID, b.NAME
 	</select>
 	
+	<select id="selectAgePref" parameterType="int" resultMap="statMap">
+		select  b.NAME as name, count(a.review_id) as reviewCnt, avg(a.star) as star
+				    from TB_REVIEW a
+          inner join TB_REST b
+           on a.REST_ID=b.REST_ID
+          inner join TB_USER c
+          on a.id=c.ID
+          where c.age between 20 and 30
+  		    group by b.REST_ID, b.NAME
+    		  order by star desc
+	</select>
 </mapper>
