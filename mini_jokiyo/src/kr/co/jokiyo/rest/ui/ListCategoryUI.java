@@ -22,6 +22,7 @@ public class ListCategoryUI extends BaseUI {
 		System.out.println("3. 양식 ");
 		System.out.println("4. 일식 ");
 		System.out.println("5. 분식 ");
+		System.out.println("================================");
 		int no = getInt("메뉴 중 처리할 항목을 선택하세요 :");
 		List<Rest> list = mapper.selectRestCategory(no);
 		
