@@ -26,7 +26,7 @@ public class DetailRestUI extends BaseUI {
 
 	public void service() {
 		List<Rest> list = mapper.selectDetailRest(num);
-	
+		System.out.println("================================");
 		for (Rest r : list) {
 			System.out.printf("식당명 : %s\t주소 : %s\t영업시간 : %s ~ %s\t\n", r.getName(), r.getAddr(), r.getOpenDate(),
 					r.getCloseDate());

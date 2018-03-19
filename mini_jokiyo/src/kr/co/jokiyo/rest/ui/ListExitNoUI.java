@@ -16,16 +16,16 @@ public class ListExitNoUI extends BaseUI {
 
 	public void service() {
 		SearchMainUI ui = new SearchMainUI();
-		System.out.println("================================");
 //		System.out.println("0. 뒤로가기");
 //		System.out.println("출구 번호를 입력하세요");
-		System.out.println("1.  1, 2번 출구\n" + 
-				           "2.  7, 8번 출구\n" + 
-				           "3.  9,10번 출구\n" + 
-				           "4.　11,12번 출구");
-		System.out.println("0.  뒤로가기");
-		System.out.println("================================");
 		while(true) {
+			System.out.println("================================");
+			System.out.println("1.  1, 2번 출구\n" + 
+					"2.  7, 8번 출구\n" + 
+					"3.  9,10번 출구\n" + 
+					"4.　11,12번 출구");
+			System.out.println("0.  뒤로가기");
+			System.out.println("================================");
 			int no = getInt("메뉴 중 처리할 항목을 선택하세요 : ");
 			if(no>0&&no<5) {
 				System.out.println("식당아이디\t식당이름\t식당타입\t식당출구번호\t식당전화번호");

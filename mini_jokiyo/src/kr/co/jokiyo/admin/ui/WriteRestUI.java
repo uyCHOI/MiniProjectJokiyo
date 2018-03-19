@@ -16,10 +16,11 @@ public class WriteRestUI extends BaseUI{
 		Rest restVO = new Rest();
 		restVO.setName(getStr("식당이름 : "));
 		restVO.setTypeId(getInt("식당타입(1~5) : "));
-		restVO.setExitNum(getInt("출구번호 : "));
+		restVO.setExitNum(getInt("출구번호 :(1~4) "));
 		restVO.setTel(getStr("전화번호 : "));
 		restVO.setOpenDate(getStr("여는시간 : "));
 		restVO.setCloseDate(getStr("닫는시간 : "));
+		restVO.setAddr("주소 : ");
 		mapper.insertRest(restVO);
 		System.out.println("식당 등록이 완료되었습니다.");
 		

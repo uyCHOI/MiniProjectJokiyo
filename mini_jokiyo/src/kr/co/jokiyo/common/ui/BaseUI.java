@@ -22,7 +22,7 @@ public abstract class BaseUI {
 		for(int i =0; i<star; i++) {
 			System.out.print("★");
 		}
-		if(cnt%0.5>0) {
+		if(cnt%1>0.4) {
 			System.out.println("☆");
 		}System.out.println();
 	}

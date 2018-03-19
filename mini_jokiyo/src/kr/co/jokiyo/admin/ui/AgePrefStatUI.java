@@ -14,13 +14,15 @@ public class AgePrefStatUI extends BaseUI{
 
 	@Override
 	public void service() {
-		int age = getInt("나이대별 별점 높은순으로 출력을 위해 나이를 입력 :");
+		int age = getInt("별점 높은순으로 출력을 위해 나이대를 입력 : ");
 		List<Stat> list = mapper.selectAgePref(age);
 		System.out.println(age+"대 가장 선호하는 음식점 ");
-		System.out.println("식당명           별점        리뷰수");
 		for(Stat s : list) {
 			System.out.println("================================");
-			System.out.println("   "+s.getName()+ "   "+s.getStar()+"   "+s.getReviewCnt());
+			System.out.println(" "+s.getName());
+			System.out.printf(" 별점 평균 : %.1f\n",s.getStar());	
+			System.out.println("리뷰 수" + s.getReviewCnt());
+			printStar(s.getStar());
 		}
 	}
 	

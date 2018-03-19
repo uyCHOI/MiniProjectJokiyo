@@ -20,12 +20,15 @@ public class UserUI extends BaseUI {
 		AdminUI aui = new AdminUI();
 		BaseUI ui = null;
 		switch(menu()){
-			case 1: ui = new ListUserUI(mapper); break;
-			case 2: ui = new UpdateUserUI(mapper); break;
-			case 3: ui = new DeleteUserUI(mapper); break;
+			case 1: ui = new ListUserUI(mapper); 
+			ui.service(); break;
+			case 2: ui = new UpdateUserUI(mapper);
+			ui.service(); break;
+			case 3: ui = new DeleteUserUI(mapper); 
+			ui.service(); break;
 			case 0: aui.service(); break;
 		}
-		ui.service();
+		
 	}
 
 	private int menu() {

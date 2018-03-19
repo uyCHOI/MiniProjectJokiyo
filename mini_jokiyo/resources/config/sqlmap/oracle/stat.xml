@@ -14,7 +14,7 @@
 		      on b.id=c.id
 		  group by a.name, c.sex
 		    HAVING c.sex='f'
-		    order by reviewCnt desc
+		    order by star desc
 	</select>
 	<select id="selectMailStat" resultType="stat">
 		select a.name name, count(b.REST_ID) reviewCnt,avg(b.star) as star 
@@ -25,7 +25,7 @@
 		      on b.id=c.id
 		  group by a.name, c.sex
 		    HAVING c.sex='m'
-		    order by reviewCnt desc
+		    order by star desc
 	</select>
 
 	<select id="selectMonthStat" parameterType="string" resultMap="statMap">

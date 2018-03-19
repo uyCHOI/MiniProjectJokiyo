@@ -29,7 +29,8 @@
             exit_num,
             tel,
             open_date,
-            close_date
+            close_date,
+            addr
         ) values (
             s_rest_id.nextval,
             #{name},
@@ -37,7 +38,8 @@
             #{exitNum},
             #{tel},
             #{openDate},
-            #{closeDate}
+            #{closeDate},
+            #{addr}
         )
     </insert>
     
