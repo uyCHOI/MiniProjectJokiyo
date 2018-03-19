@@ -27,7 +27,11 @@ public class ListExitNoUI extends BaseUI {
 			System.out.println("0.  뒤로가기");
 			System.out.println("================================");
 			int no = getInt("메뉴 중 처리할 항목을 선택하세요 : ");
-			if(no>0&&no<5) {
+			if(no==0) {
+				ui = new SearchMainUI();
+				ui.service();
+			}
+			else if(no>0&&no<5) {
 				System.out.println("식당아이디\t식당이름\t식당타입\t식당출구번호\t식당전화번호");
 				System.out.println("================================");
 				List<Rest> list = mapper.selectRestExitNum(no);
@@ -35,10 +39,9 @@ public class ListExitNoUI extends BaseUI {
 					System.out.printf("%d\t%s\t%s\t%s\t%s\n",r.getRestId(),r.getName(),r.getTypeName(),r.getExitName(),r.getTel());
 				}
 				System.out.println("================================");
-				System.out.println("상세번호를 보기를 원하면 식당아이디를 입력하세요 :");
+				System.out.println("상세번호를 보기를 원하면 식당아이디를 입력하세요.");
 				System.out.println("(0. 이전 메뉴로 돌아가기)");
 				int num = getInt("");
-				System.out.println("================================");
 				if(num==0) {
 					ui = new SearchMainUI();
 					ui.service();
@@ -49,7 +52,6 @@ public class ListExitNoUI extends BaseUI {
 				System.out.println("================================");
 				System.out.println("다시입력해주세요 ");
 				System.out.println("================================");
-				
 			}
 		}
 	}

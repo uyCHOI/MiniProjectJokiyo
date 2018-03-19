@@ -28,9 +28,9 @@ public class DetailRestUI extends BaseUI {
 		List<Rest> list = mapper.selectDetailRest(num);
 		System.out.println("================================");
 		for (Rest r : list) {
-			System.out.printf("식당명 : %s\t주소 : %s\t영업시간 : %s ~ %s\t\n", r.getName(), r.getAddr(), r.getOpenDate(),
+			System.out.printf("식당명 : %s\t주소 : %s\t영업시간 : %s ~ %s\t\n", r.getName(), r.getAddr(), r.getOpenDate(),                             
 					r.getCloseDate());
-			System.out.printf("별점 : %.2f\t전화번호 : %s\t출구번호 : %s\n", r.getStar(), r.getTel(), r.getExitName());
+			System.out.printf("별점 : %.1f\t전화번호 : %s\t출구번호 : %s\n", r.getStar(), r.getTel(), r.getExitName());
 			if(list.isEmpty()) {
 				System.out.println("해당하는 식당은 없습니다.");
 				ui = new SearchMainUI();

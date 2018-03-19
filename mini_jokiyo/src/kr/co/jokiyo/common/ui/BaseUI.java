@@ -19,11 +19,12 @@ public abstract class BaseUI {
 	}
 	public void printStar(float cnt) {
 		 int star = (int)cnt;
+		 System.out.print(" ");
 		for(int i =0; i<star; i++) {
 			System.out.print("★");
 		}
 		if(cnt%1>0.4) {
-			System.out.println("☆");
+			System.out.print("☆");
 		}System.out.println();
 	}
 }

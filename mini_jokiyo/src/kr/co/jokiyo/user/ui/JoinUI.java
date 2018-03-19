@@ -50,6 +50,7 @@ public class JoinUI extends BaseUI {
 			param.setEmail(email);
 			mapper.insertUserJoin(param);
 			System.out.println("회원가입이 완료되었습니다.");
+			System.out.println("로그인 해주세요.");
 			LoginUI ui = new LoginUI();
 			try {
 				ui.service();

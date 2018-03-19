@@ -18,9 +18,8 @@ public class DeleteUserUI extends BaseUI {
 			System.out.println("입력하신 번호의 식당이 없습니다.");
 			return;
 		}
-		System.out.println("식당이 삭제되었습니다.");
-
-
+		System.out.println(s+"유저가 삭제되었습니다.");
+		return;
 	}
 
 }

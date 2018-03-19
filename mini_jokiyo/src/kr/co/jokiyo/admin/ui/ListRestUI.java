@@ -24,9 +24,9 @@ public class ListRestUI extends BaseUI{
 		System.out.println("================================");
 		
 		for (Rest r : list) {
-			System.out.printf("%d\t%s\t%s\t%d\t%s\t%s\t%s\n", 
+			System.out.printf("%d\t%s\t%s\t%s\t%s\t%s\t%s\n", 
 					r.getRestId(), r.getName(), r.getTypeName(),
-					r.getExitNum(), r.getTel(), r.getOpenDate(), r.getCloseDate());
+					r.getExitName(), r.getTel(), r.getOpenDate(), r.getCloseDate());
 		}
 		System.out.println("================================");
 	}

@@ -31,7 +31,7 @@ public class ListCategoryUI extends BaseUI {
 			System.out.println("식당아이디\t식당이름\t리뷰개수\t별점");
 			System.out.println("================================");
 			for (Rest r :list) {
-				System.out.printf("%d\t%s\t\t%d\t%.2f\n",r.getRestId(),r.getName(),r.getReviewCnt(),r.getStar());
+				System.out.printf("%d\t%s\t\t%d\t%.1f\n",r.getRestId(),r.getName(),r.getReviewCnt(),r.getStar());
 			} 
 			System.out.println("================================");
 			int num = getInt("상세번호를 보기를 원하면 식당아이디를 입력하세요 : ");

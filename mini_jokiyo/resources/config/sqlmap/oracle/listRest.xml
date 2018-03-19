@@ -70,8 +70,8 @@
     <select id="selectDetailRest" parameterType="int" resultMap="restMap">
    select a.name,
            a.tel,
-            nvl(a.open_date,'　') as open_date,
-            nvl(a.close_date,'　') as close_date,
+            nvl(a.open_date,'        ') as open_date,
+            nvl(a.close_date,'        ') as close_date,
             a.addr ,
             c.exit_name, 
             d.name,
@@ -84,7 +84,7 @@
       inner join tb_rest_type d
        on a.TYPE_ID = d.TYPE_ID
       where a.rest_id = #{restId}
-      group by  a.name,a.tel,open_date,close_date,a.addr ,c.exit_name, d.name,b.star
+      group by  a.name,a.tel,open_date,close_date,a.addr ,c.exit_name, d.name
     </select>
 
 	<select id="selectDetailMenu"  parameterType="int"     resultType="menu" >

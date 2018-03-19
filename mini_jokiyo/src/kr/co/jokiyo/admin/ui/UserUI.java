@@ -19,7 +19,8 @@ public class UserUI extends BaseUI {
 	public void service() {
 		AdminUI aui = new AdminUI();
 		BaseUI ui = null;
-		switch(menu()){
+		while(true) {
+			switch(menu()){
 			case 1: ui = new ListUserUI(mapper); 
 			ui.service(); break;
 			case 2: ui = new UpdateUserUI(mapper);
@@ -27,6 +28,7 @@ public class UserUI extends BaseUI {
 			case 3: ui = new DeleteUserUI(mapper); 
 			ui.service(); break;
 			case 0: aui.service(); break;
+			}
 		}
 		
 	}

@@ -38,7 +38,12 @@ public class DetailReviewUI extends BaseUI {
 		System.out.println("================================");
 		};
 		System.out.print("좋아요를 할 리뷰번호를 입력하세요 : "  );
+		System.out.print("(0. 뒤로가기)"  );
         int id = Integer.parseInt(sc.nextLine());
+        if(id==0) {
+        	DetailRestUI ui = new DetailRestUI(num);
+			ui.service();
+        }
         mapper.updateGood(id);
         System.out.println("좋아요가 반영되었습니다.");
 		/*

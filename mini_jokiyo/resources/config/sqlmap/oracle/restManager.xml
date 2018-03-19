@@ -8,16 +8,19 @@
 		<result column="type_id" property="typeId" />
 		<result column="type_name" property="typeName" />
 		<result column="exit_num" property="exitNum" />
+		<result column="exit_name" property="exitName" />
 		<result column="tel" property="tel" />
 		<result column="open_date" property="openDate" />
 		<result column="close_date" property="closeDate" />
     </resultMap>
     
     <select id="selectRest" resultMap="restMap">
-        select rest_id, r.name as name, t.name as type_name, exit_num, tel, nvl(open_date, ' ')as open_date, nvl(close_date, ' ') as close_date
+        select rest_id, r.name as name, t.name as type_name, e.exit_name, tel, nvl(open_date, ' ')as open_date, nvl(close_date, ' ') as close_date
           from tb_rest r
          inner join tb_rest_type t
             on r.type_id= t.type_id
+         inner join tb_exit_type e
+         	on e.exit_num=r.exit_num
          order by rest_id asc
     </select>
     
